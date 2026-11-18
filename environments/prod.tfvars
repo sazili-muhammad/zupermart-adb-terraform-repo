@@ -1,6 +1,6 @@
 environment    = "prod"
-project_name   = "easymart"
-location       = "australiaeast"
+project_name   = "zupermart"
+location       = "australiasoutheast"
 databricks_sku = "premium"
 
 cluster_config = {
