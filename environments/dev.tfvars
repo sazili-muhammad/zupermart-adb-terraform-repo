@@ -1,5 +1,5 @@
 environment    = "dev"
-project_name   = "personal"
+project_name   = "easymart"
 location       = "australiaeast"
 databricks_sku = "premium"
 
@@ -15,6 +15,20 @@ cluster_config = {
   spark_conf = {
     "spark.sql.adaptive.enabled" = "true"
   }
+}
+
+storage_config = {
+  account_tier             = "Standard"
+  account_replication_type = "RAGRS"
+  container_name           = "landing"
+  soft_delete_days         = 7
+}
+
+unity_catalog_config = {
+  schema_name    = "landing"
+  volume_name    = "blob_source"
+  volume_type    = "EXTERNAL" # "MANAGED" or "EXTERNAL"
+  volume_folders = ["incoming", "processed", "archive"]
 }
 
 tags = {

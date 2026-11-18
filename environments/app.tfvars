@@ -1,14 +1,7 @@
 environment    = "app"
-project_name   = "personal"
+project_name   = "easymart"
 location       = "australiaeast"
 databricks_sku = "premium"
-
-storage_config = {
-  account_tier             = "Standard"
-  account_replication_type = "RAGRS"
-  container_name           = "landing"
-  soft_delete_days         = 7
-}
 
 cluster_config = {
   spark_version           = "" # Leave blank to automatically use the latest LTS runtime
@@ -22,6 +15,13 @@ cluster_config = {
   spark_conf = {
     "spark.sql.adaptive.enabled" = "true"
   }
+}
+
+storage_config = {
+  account_tier             = "Standard"
+  account_replication_type = "RAGRS"
+  container_name           = "landing"
+  soft_delete_days         = 7
 }
 
 unity_catalog_config = {
