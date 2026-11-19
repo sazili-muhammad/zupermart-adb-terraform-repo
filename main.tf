@@ -1,5 +1,6 @@
 locals {
-  name_prefix = "${var.project_name}-${var.environment}"
+  name_prefix  = "${var.project_name}-${var.environment}"
+  catalog_name = var.unity_catalog_config.catalog_name != "" ? var.unity_catalog_config.catalog_name : "adb-${local.name_prefix}"
 
   common_tags = merge(
     {
@@ -135,10 +136,10 @@ resource "databricks_external_location" "this" {
   comment         = "External location for ${var.environment} environment"
 }
 
-# Omitting storage_root requires a configured metastore-level storage root.
 resource "databricks_catalog" "this" {
-  name    = var.unity_catalog_config.catalog_name != "" ? var.unity_catalog_config.catalog_name : "adb-${local.name_prefix}"
-  comment = "Catalog for ${var.environment} environment"
+  name         = local.catalog_name
+  comment      = "Catalog for ${var.environment} environment"
+  storage_root = "${databricks_external_location.this.url}catalogs/${local.catalog_name}"
 }
 
 # 4. Schema inside the Catalog
