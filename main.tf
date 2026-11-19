@@ -135,11 +135,10 @@ resource "databricks_external_location" "this" {
   comment         = "External location for ${var.environment} environment"
 }
 
-# 3. Unity Catalog (uses the External Location as its managed storage root)
+# Omitting storage_root requires a configured metastore-level storage root.
 resource "databricks_catalog" "this" {
-  name         = "adb-${local.name_prefix}"
-  storage_root = databricks_external_location.this.url
-  comment      = "Catalog for ${var.environment} environment"
+  name    = var.unity_catalog_config.catalog_name != "" ? var.unity_catalog_config.catalog_name : "adb-${local.name_prefix}"
+  comment = "Catalog for ${var.environment} environment"
 }
 
 # 4. Schema inside the Catalog

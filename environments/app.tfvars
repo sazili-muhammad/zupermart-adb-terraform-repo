@@ -25,6 +25,7 @@ storage_config = {
 }
 
 unity_catalog_config = {
+  catalog_name   = "adb_zupermart_app"
   schema_name    = "landing"
   volume_name    = "blob_source"
   volume_type    = "EXTERNAL" # "MANAGED" or "EXTERNAL"
