@@ -18,6 +18,9 @@ provider "azurerm" {
     databricks_workspace {
       force_delete = true
     }
+    resource_group {
+      prevent_deletion_if_contains_resources = false
+    }
   }
 }
 

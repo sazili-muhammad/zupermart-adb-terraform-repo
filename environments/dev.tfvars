@@ -17,20 +17,6 @@ cluster_config = {
   }
 }
 
-storage_config = {
-  account_tier             = "Standard"
-  account_replication_type = "RAGRS"
-  container_name           = "landing"
-  soft_delete_days         = 7
-}
-
-unity_catalog_config = {
-  schema_name    = "landing"
-  volume_name    = "blob_source"
-  volume_type    = "EXTERNAL" # "MANAGED" or "EXTERNAL"
-  volume_folders = ["incoming", "processed", "archive"]
-}
-
 tags = {
   CostCenter = "Data-Engineering-Dev"
 }
