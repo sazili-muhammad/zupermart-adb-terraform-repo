@@ -10,7 +10,7 @@ cluster_config = {
   autotermination_minutes = 30
   min_workers             = 1
   max_workers             = 1
-  spot_bid_max_price      = -1
+  spot_bid_max_price      = 0
 
   #node_type_id            = "Standard_DS4_v2"
   #driver_node_type_id     = "Standard_DS4_v2"
